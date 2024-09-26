@@ -22,7 +22,7 @@ const CreateTrip = () => {
         muted
         style={{ opacity: '1' }}  // Inline style for video opacity
       >
-        <source src="src/assets/my7.mp4" type="video/mp4" />
+        <source src="src/assets/my1.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
