@@ -22,6 +22,7 @@ const CreateTrip = () => {
     'src/assets/h.jpg',
     'src/assets/h2.jpg',
     'src/assets/h3.jpg',
+    'src/assets/h4.jpg',
     // Add more image paths here
   ];
 
