@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ImageSlider from './Slider';
+import axios from 'axios';
+
 ; // Import the new Slider component
 
 const CreateTrip = () => {
@@ -9,9 +11,16 @@ const CreateTrip = () => {
   const [endDate, setEndDate] = useState('');
   const [budget, setBudget] = useState('');
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ tripName, destination, startDate, endDate, budget });
+    try {
+      const newTrip = { tripName, destination, startDate, endDate, budget };
+      await axios.post('http://localhost:7000/api/trips/create', newTrip);
+      alert('Trip created successfully!');
+    } catch (error) {
+      console.error('Failed to create trip:', error);
+    }
   };
 
   // Image URLs for the carousel

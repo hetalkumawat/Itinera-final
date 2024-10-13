@@ -3,7 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
- 
+const tripRoutes = require('./routes/trip');
+
 dotenv.config(); 
 const app = express();
 const PORT = process.env.PORT || 7000;
@@ -26,6 +27,8 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/trips', tripRoutes);
+
 
 // Start server
 app.listen(PORT, () => {

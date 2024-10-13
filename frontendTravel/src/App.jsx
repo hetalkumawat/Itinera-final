@@ -7,6 +7,7 @@ import FeaturesOverview from './components/FeaturesOverview';
 import UserTestimonial from './components/UserTestimonial';
 import SampleItineraries from './components/SampleItineraries';
 import Footer from './components/Footer';
+import Plans from './components/Plans'
 import SignUp from './components/SignUp'; 
 import CreateTrip from './components/CreateTrip'; // Import CreateTrip
 
@@ -26,7 +27,9 @@ const App = () => {
             </>
           } />
           <Route path="/signup" element={<SignUp />} /> 
-          <Route path="/create-trip" element={<CreateTrip />} /> {/* CreateTrip route */}
+         
+          <Route path="/create-trip" element={<CreateTrip />} /> 
+          <Route path="/plans" element={<Plans />} />{/* CreateTrip route */}
         </Routes>
       </div>
     </Router>
