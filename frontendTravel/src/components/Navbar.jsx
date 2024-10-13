@@ -49,7 +49,7 @@ const Navbar = () => {
             <FaMapSigns className="text-black" />
             <span>Plans</span>
           </a>
-          <a href="/signin" className="flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-full shadow-md hover:bg-indigo-500 transition duration-300">
+          <a href="/signup" className="flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-full shadow-md hover:bg-indigo-500 transition duration-300">
             <FaSignInAlt className="text-white" />
             <span>Sign In</span>
           </a>

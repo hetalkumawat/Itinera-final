@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-/* src/index.css or the appropriate CSS file */
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 
 const CreateTrip = () => {
   const [tripName, setTripName] = useState('');
@@ -17,17 +15,15 @@ const CreateTrip = () => {
     console.log({ tripName, destination, startDate, endDate, budget });
   };
 
-  // Image URLs for the carousel
   const images = [
     'src/assets/h.jpg',
     'src/assets/h1.jpg',
     'src/assets/h2.jpg',
     'src/assets/h3.jpg',
     'src/assets/h4.jpg',
-    // Add more image paths here
+    'src/assets/h5.jpg',
   ];
 
-  // Slider settings
   const settings = {
     dots: true,
     infinite: true,
@@ -40,31 +36,27 @@ const CreateTrip = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-indigo-400 py-16">
-      {/* Background Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50 z-0"></div>
 
-      {/* Main Content Section */}
       <div className="relative z-10 flex items-center justify-between w-11/12 max-w-6xl bg-transparent flex-col md:flex-row">
-        {/* Combined Container for Form and Slider */}
         <div
           className="flex flex-col md:flex-row items-center justify-between w-full bg-white bg-opacity-20 p-8 rounded-lg shadow-lg"
           style={{
-            backdropFilter: 'blur(10px)', // Apply blur effect for transparency
+            backdropFilter: 'blur(3px)',
           }}
         >
-          {/* Left Side: Form Section */}
           <div
-            className="flex-1 p-8 text-white md:w-1/2"
+            className="flex-1 p-8 text-black md:w-1/2"
             style={{
-              maxWidth: '400px',  // Restrict form width
+              maxWidth: '600px',
             }}
           >
-            <h1 className="text-3xl font-bold mb-6 mt-5 text-center text-white">
+            <h1 className="text-3xl font-bold mb-6 mt-5 text-center text-black">
               Plan a New Trip
             </h1>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-black font-medium mb-2">
                   Trip Name:
                 </label>
                 <input
@@ -76,7 +68,7 @@ const CreateTrip = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-black font-medium mb-2">
                   Where To:
                 </label>
                 <input
@@ -88,7 +80,7 @@ const CreateTrip = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-black font-medium mb-2">
                   Start Date:
                 </label>
                 <input
@@ -100,7 +92,7 @@ const CreateTrip = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-black font-medium mb-2">
                   End Date:
                 </label>
                 <input
@@ -112,7 +104,7 @@ const CreateTrip = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-black font-medium mb-2">
                   Budget:
                 </label>
                 <input
@@ -125,15 +117,14 @@ const CreateTrip = () => {
               </div>
               <button
                 type="submit"
-                className="bg-indigo-600 text-white rounded py-2 px-4 w-full hover:bg-indigo-500 transition duration-300"
+                className="bg-indigo-600 text-black rounded py-2 px-4 w-full hover:bg-indigo-500 transition duration-300"
               >
                 Create Trip
               </button>
             </form>
           </div>
 
-          {/* Right Side: Image Slider Section */}
-          <div className="flex-1 md:w-1/2">
+          <div className="flex-1 w-44">
             <Slider {...settings}>
               {images.map((image, index) => (
                 <div key={index} className="flex justify-center">
@@ -141,7 +132,7 @@ const CreateTrip = () => {
                     src={image}
                     alt={`Travel ${index}`}
                     className="rounded-lg shadow-lg object-cover w-full h-auto"
-                    style={{ maxHeight: '500px' }}  // Restrict image height for balance
+                    style={{ maxHeight: '400px' }}
                   />
                 </div>
               ))}
