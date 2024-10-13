@@ -1,21 +1,28 @@
-// src/components/ImageSlider.js
-import React from 'react';
+// src/components/Slider.jsx
 import Slider from 'react-slick';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const ImageSlider = ({ images, settings }) => {
+const ImageSlider = ({ images }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <Slider {...settings}>
       {images.map((image, index) => (
         <div key={index} className="flex justify-center">
-          <LazyLoadImage
+          <img
             src={image}
             alt={`Travel ${index}`}
-            className="rounded-lg shadow-lg object-cover"
-            style={{ maxHeight: '300px', maxWidth: '300px' }} // You can adjust the dimensions
-            effect="blur" // Blur effect while the image is loading
+            className="rounded-lg shadow-lg object-cover w-full h-auto"
+            style={{ maxHeight: '450px' }}
           />
         </div>
       ))}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import ImageSlider from './Slider';
+; // Import the new Slider component
 
 const CreateTrip = () => {
   const [tripName, setTripName] = useState('');
@@ -15,6 +14,7 @@ const CreateTrip = () => {
     console.log({ tripName, destination, startDate, endDate, budget });
   };
 
+  // Image URLs for the carousel
   const images = [
     'src/assets/h.jpg',
     'src/assets/h1.jpg',
@@ -23,16 +23,6 @@ const CreateTrip = () => {
     'src/assets/h4.jpg',
     'src/assets/h5.jpg',
   ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-indigo-400 py-16">
@@ -45,6 +35,7 @@ const CreateTrip = () => {
             backdropFilter: 'blur(3px)',
           }}
         >
+          {/* Form Section */}
           <div
             className="flex-1 p-8 text-black md:w-1/2"
             style={{
@@ -124,19 +115,10 @@ const CreateTrip = () => {
             </form>
           </div>
 
+          {/* Image Slider Section */}
           <div className="flex-1 w-44">
-            <Slider {...settings}>
-              {images.map((image, index) => (
-                <div key={index} className="flex justify-center">
-                  <img
-                    src={image}
-                    alt={`Travel ${index}`}
-                    className="rounded-lg shadow-lg object-cover w-full h-auto"
-                    style={{ maxHeight: '400px' }}
-                  />
-                </div>
-              ))}
-            </Slider>
+           
+            <ImageSlider images={images} /> {/* Use the ImageSlider component */}
           </div>
         </div>
       </div>
