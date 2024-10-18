@@ -23,7 +23,6 @@ const App = () => {
               <FeaturesOverview />
               <SampleItineraries />
               <UserTestimonial />
-              <Footer />
             </>
           } />
           <Route path="/signup" element={<SignUp />} /> 
@@ -31,6 +30,7 @@ const App = () => {
           <Route path="/create-trip" element={<CreateTrip />} /> 
           <Route path="/plans" element={<Plans />} />{/* CreateTrip route */}
         </Routes>
+          <Footer />
       </div>
     </Router>
   );

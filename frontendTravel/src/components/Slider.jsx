@@ -8,9 +8,9 @@ const ImageSlider = ({ images }) => {
     dots: true,
     infinite: true,
     speed: 1000,
-    autoplay: true,
-    autoplaySpeed: 8000,
-    slidesToShow: 1,
+    autoplaySpeed: 2000,
+    autoplay : true,
+    slidesToShow: 5,
     slidesToScroll: 1,
   };
 
@@ -18,12 +18,13 @@ const ImageSlider = ({ images }) => {
     <Slider {...settings}>
       {images.map((image, index) => (
         <div key={index} className="flex justify-center">
-          <img
-            src={image}
-            alt={`Travel ${index}`}
-            className="rounded-lg shadow-lg object-cover w-full h-auto"
-            style={{ maxHeight: '450px' }}
-          />
+          <div className="w-72 h-72 overflow-hidden rounded-lg shadow-lg"> {/* Set fixed width and height */}
+            <img
+              src={image}
+              alt={`Travel ${index}`}
+              className="object-cover w-full h-full" // object-cover ensures the image covers the div while maintaining aspect ratio
+            />
+          </div>
         </div>
       ))}
     </Slider>
