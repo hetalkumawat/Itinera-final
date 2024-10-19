@@ -7,7 +7,9 @@ export default {
         roboto: ['Roboto', 'sans-serif'],
       },
       colors: {
-        customGreen: '#14330E', // Adding your custom green color
+        customGreen: '#14330E',
+        lilac: '#E6E6FA',
+        olive : '#B0CCBA' // Adding your custom green color
       },
     },
   },
