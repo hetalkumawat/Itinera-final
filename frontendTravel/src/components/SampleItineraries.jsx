@@ -1,42 +1,7 @@
-import  { useEffect, useState, memo } from "react";
-import PropTypes from "prop-types"; // ✅ Import PropTypes at the top
-
-ItineraryCard.propTypes = {
-  itinerary: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    days: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-const sampleItineraries = [
-  {
-    title: "Weekend Getaway to Paris",
-    description:
-      "Explore the romantic city of lights in 3 days with stops at the Eiffel Tower, Louvre, and local cafes.",
-    days: 3,
-    image: "/paris.jpg",
-  },
-  {
-    title: "Business Trip to New York",
-    description:
-      "A 2-day itinerary perfect for meetings and quick visits to iconic spots like Central Park and Times Square.",
-    days: 2,
-    image: "/newyork.jpg",
-  },
-  {
-    title: "Adventure in Tokyo",
-    description:
-      "5 days of exploring the futuristic streets of Tokyo, including visits to Shibuya, Harajuku, and Mount Fuji.",
-    days: 5,
-    image: "/tokyo.jpg",
-  },
-];
+import { useEffect, useState, memo } from "react";
+import PropTypes from "prop-types"; // ✅ Import at the top
 
 // Memoized Itinerary Card to prevent re-renders
-ItineraryCard.displayName = "ItineraryCard";
-
 const ItineraryCard = memo(({ itinerary }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -66,6 +31,43 @@ const ItineraryCard = memo(({ itinerary }) => {
     </div>
   );
 });
+
+// ✅ Move propTypes definition BELOW the component
+ItineraryCard.displayName = "ItineraryCard";
+
+ItineraryCard.propTypes = {
+  itinerary: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    days: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+// Sample Itineraries List
+const sampleItineraries = [
+  {
+    title: "Weekend Getaway to Paris",
+    description:
+      "Explore the romantic city of lights in 3 days with stops at the Eiffel Tower, Louvre, and local cafes.",
+    days: 3,
+    image: "/paris.jpg",
+  },
+  {
+    title: "Business Trip to New York",
+    description:
+      "A 2-day itinerary perfect for meetings and quick visits to iconic spots like Central Park and Times Square.",
+    days: 2,
+    image: "/newyork.jpg",
+  },
+  {
+    title: "Adventure in Tokyo",
+    description:
+      "5 days of exploring the futuristic streets of Tokyo, including visits to Shibuya, Harajuku, and Mount Fuji.",
+    days: 5,
+    image: "/tokyo.jpg",
+  },
+];
 
 const SampleItineraries = () => {
   return (
