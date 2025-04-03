@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import ImageSlider from './Slider';
 import axios from 'axios';
 
@@ -24,7 +24,7 @@ const CreateTrip = () => {
         notes,
         places: placesList,
       };
-      await axios.post('http://localhost:7000/api/trips/create', newTrip);
+      await axios.post('http://localhost:7000/api/trip/create', newTrip);
       alert('Trip created successfully!');
       setTripName('');
       setDestination('');
@@ -63,7 +63,7 @@ const CreateTrip = () => {
   return (
     <section className="relative">
     {/* Hero Section */}
-    <div className="relative w-full h-[100vh] bg-cover bg-center" style={{ backgroundImage: "url('src/assets/bg09.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+    <div className="relative w-full h-[100vh] bg-cover bg-center" style={{ backgroundImage: "url('src/assets/createtrip.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
     {/* <video className="absolute top-0 left-0 w-full h-full object-cover z-0" loop muted>
         <source src="src/assets/vdo.mp4" type="video/mp4" />
         Your browser does not support the video tag.t
@@ -79,7 +79,7 @@ const CreateTrip = () => {
           className="mt-6 bg-blue-950 text-white py-3 px-6 rounded-lg hover:bg-gray-500 transition duration-300"
           onClick={() => document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' })}
         >
-          Let's Plan
+          Let&apos;s Plan
         </button>
       </div>
     </div>
@@ -89,7 +89,7 @@ const CreateTrip = () => {
       <div className="w-full max-w-4xl  p-6 rounded-lg  flex">
         {/* Left Side: Form */}
         <div className="w-1/2 pr-6">
-          <h1 className="text-4xl font-bold mb-6 mt-5 text-center text-black font-serif">Let's Plan!</h1>
+          <h1 className="text-4xl font-bold mb-6 mt-5 text-center text-black font-serif">Let&apos;s Plan!</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4 flex items-center">
               <i className="fas fa-suitcase mr-2"></i>
@@ -180,15 +180,31 @@ const CreateTrip = () => {
       {/* Other sections like Notes, Places to Visit, Image Slider, and Map */}
       <div className="relative z-10 bg-white">
         {/* Notes and Image Strip Section */}
-<div className="flex flex-row w-full h-96 mt-7 pr-28 pl-14  justify-between bg-white rounded-lg p-6 mb-8">
- 
-<div className="w-1/2 p-4">
+        <div className="flex flex-row w-full h-96 mt-7 pr-28 pl-14 justify-between bg-white rounded-lg p-6 mb-8">
+  {/* Image Section */}
+  <div className="w-1/2 p-4">
     <img
       src="src/assets/bg08.png"
       alt="Trip visual"
-      className="w-full h-full object-cover rounded-lg "
+      className="w-full h-full object-cover rounded-lg"
     />
-  </div> 
+  </div>
+  
+  {/* Text Section */}
+  <div className="w-1/2 p-4 flex flex-col justify-center">
+    <h2 className="text-2xl font-semibold mb-4">Explore the World with Us</h2>
+    <p className="text-lg text-gray-700">
+      Discover new destinations, create unforgettable memories, and plan your perfect trip. 
+      Whether you&apos;re traveling solo or with friends, our platform helps you explore, organize, 
+      and enjoy your travel experiences like never before.
+    </p>
+    <p className="text-lg text-gray-700 mt-4">
+      From breathtaking landscapes to vibrant cities, your next adventure awaits. Let us guide 
+      you through every step of the journey.
+    </p>
+  </div>
+</div>
+
  {/* Notes Section */}
  
 
@@ -258,7 +274,7 @@ const CreateTrip = () => {
           <p>© 2024 Trip Planner App. All Rights Reserved.</p>
 
 <a href='www.freepik.com'> Freepik</a>        </footer>
-      </div>
+    
     </section>
   );
 };

@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/trips', tripRoutes);
+app.use('/api/trip', tripRoutes);
 
 
 // Start server

@@ -1,0 +1,79 @@
+.testimonials-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+  }
+  
+  /* Wrapper to control overflow */
+  .slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Scrolling container */
+  .testimonial-slider {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+  }
+  
+  /* Continuous horizontal scrolling animation */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Testimonial Card */
+  .testimonial-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
+    text-align: center;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Hover Effect */
+  .testimonial-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* User Image */
+  .testimonial-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  /* Testimonial content */
+  .testimonial-feedback {
+    font-style: italic;
+    font-size: 1rem;
+  }
+  
+  .testimonial-name {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+  }
+  

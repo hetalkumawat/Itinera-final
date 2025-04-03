@@ -1,15 +1,15 @@
 // App.jsx
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import FeaturesOverview from './components/FeaturesOverview';
-import UserTestimonial from './components/UserTestimonial';
 import SampleItineraries from './components/SampleItineraries';
 import Footer from './components/Footer';
 import Plans from './components/Plans'
 import SignUp from './components/SignUp'; 
 import CreateTrip from './components/CreateTrip'; // Import CreateTrip
+import TestimonialsSection from './components/TestimonialsSection';
+import GettingStarted from './components/GettingStarted';
 
 const App = () => {
   return (
@@ -21,8 +21,11 @@ const App = () => {
             <>
               <HeroSection />
               <FeaturesOverview />
+              <GettingStarted/>
               <SampleItineraries />
-              <UserTestimonial />
+              <TestimonialsSection/>
+            
+              
               <Footer />
             </>
           } />

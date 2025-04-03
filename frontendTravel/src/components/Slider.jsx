@@ -1,9 +1,25 @@
-// src/components/Slider.jsx
+import  { useState, useEffect, memo } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import PropTypes from "prop-types";
 
-const ImageSlider = ({ images }) => {
+const ImageSlider = memo(({ images }) => {
+  const [loadedImages, setLoadedImages] = useState({});
+
+  useEffect(() => {
+    images.forEach((image, index) => {
+      const img = new Image();
+      img.src = image;
+      img.onload = () => {
+        setLoadedImages((prev) => ({ ...prev, [index]: true }));
+      };
+    });
+  }, [images]);
+  ImageSlider.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.string).isRequired, // Ensure images is an array of strings
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -37,18 +53,23 @@ const ImageSlider = ({ images }) => {
   return (
     <Slider {...settings}>
       {images.map((image, index) => (
-        <div key={index} className="flex justify-center px-4"> {/* Add px-4 for spacing */}
-          <div className="w-64 h-64 overflow-hidden rounded-lg shadow-lg"> {/* Set fixed width and height */}
-            <img
-              src={image}
-              alt={`Travel ${index}`}
-              className="object-cover w-full h-full" // object-cover ensures the image covers the div while maintaining aspect ratio
-            />
+        <div key={index} className="flex justify-center px-4">
+          <div className="w-64 h-64 overflow-hidden rounded-lg shadow-lg">
+            {loadedImages[index] ? (
+              <img
+                src={image}
+                alt={`Travel ${index}`}
+                className="object-cover w-full h-full"
+                loading="lazy"
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-300 animate-pulse" />
+            )}
           </div>
         </div>
       ))}
     </Slider>
   );
-};
-
+});
+ImageSlider.displayName = "ImageSlider";
 export default ImageSlider;

@@ -6,14 +6,22 @@ const router = express.Router();
 // POST: Create a new trip
 router.post('/create', async (req, res) => {
   try {
+    console.log("Received Data:", req.body); // Debugging
+
     const { tripName, destination, startDate, endDate, budget } = req.body;
+    if (!tripName || !destination || !startDate || !endDate || !budget) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
     const newTrip = new Trip({ tripName, destination, startDate, endDate, budget });
     await newTrip.save();
     res.status(201).json(newTrip);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create trip' });
+    console.error("Error Saving Trip:", error);
+    res.status(500).json({ error: "Failed to create trip" });
   }
 });
+
 
 // GET: Fetch all trips
 router.get('/all', async (req, res) => {
