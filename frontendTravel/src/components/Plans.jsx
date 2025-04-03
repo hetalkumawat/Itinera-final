@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Plans = () => {
@@ -7,7 +7,9 @@ const Plans = () => {
   useEffect(() => {
     const fetchTrips = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/trip/all'); // Ensure this URL is correct
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/trip/all`
+        );
         setTrips(response.data);
       } catch (error) {
         console.error('Failed to fetch trips:', error);
@@ -19,7 +21,9 @@ const Plans = () => {
   // Function to delete a trip
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:7000/api/trip/delete/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/trip/delete/${id}`
+      );
       setTrips(trips.filter((trip) => trip._id !== id)); // Remove trip from state
       alert('Trip deleted successfully!');
     } catch (error) {

@@ -24,7 +24,7 @@ const CreateTrip = () => {
         notes,
         places: placesList,
       };
-      await axios.post('http://localhost:7000/api/trip/create', newTrip);
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/trip/create`, newTrip);
       alert('Trip created successfully!');
       setTripName('');
       setDestination('');
