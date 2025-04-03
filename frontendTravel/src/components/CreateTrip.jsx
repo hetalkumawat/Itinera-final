@@ -52,18 +52,19 @@ const CreateTrip = () => {
   };
 
   const images = [
-    'src/assets/h.jpg',
-    'src/assets/h1.jpg',
-    'src/assets/h2.jpg',
-    'src/assets/h3.jpg',
-    'src/assets/h4.jpg',
-    'src/assets/h5.jpg',
+    '/h.jpg',
+    '/h1.jpg',
+    '/h2.jpg',
+    '/h3.jpg',
+    '/h4.jpg',
+    '/h5.jpg',
   ];
+  
 
   return (
     <section className="relative">
     {/* Hero Section */}
-    <div className="relative w-full h-[100vh] bg-cover bg-center" style={{ backgroundImage: "url('src/assets/createtrip.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+    <div className="relative w-full h-[100vh] bg-cover bg-center" style={{ backgroundImage: "url('/createtrip.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
     {/* <video className="absolute top-0 left-0 w-full h-full object-cover z-0" loop muted>
         <source src="src/assets/vdo.mp4" type="video/mp4" />
         Your browser does not support the video tag.t
@@ -158,7 +159,7 @@ const CreateTrip = () => {
         {/* Right Side: Image */}
         <div className="w-1/2 pl-6">
           <img
-            src="src/assets/bg7.jpg"
+            src="/bg7.jpg"
             alt="Trip visual"
             className="w-full h-full object-cover rounded-lg "
           />
@@ -184,7 +185,7 @@ const CreateTrip = () => {
   {/* Image Section */}
   <div className="w-1/2 p-4">
     <img
-      src="src/assets/bg08.png"
+      src="/bg08.png"
       alt="Trip visual"
       className="w-full h-full object-cover rounded-lg"
     />
@@ -261,7 +262,7 @@ const CreateTrip = () => {
   <div className="flex-1 w-1/4  p-4">
     <h2 className="text-xl text-center font-roboto font-bold ">View on Map</h2>
     <img
-      src="src/assets/map.jpg"
+      src="/map.jpg"
       alt="Map placeholder"
       className="h-64 w-full rounded-lg shadow-lg"
     />

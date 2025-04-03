@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { FaHome, FaMapSigns, FaSignInAlt } from 'react-icons/fa'; // Importing Font Awesome icons
+import { useState, useEffect, useCallback } from 'react';
+import { FaHome, FaMapSigns, FaSignInAlt } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Scroll handler
-  const handleScroll = () => {
+  // ✅ Memoizing handleScroll using useCallback
+  const handleScroll = useCallback(() => {
     if (window.scrollY > lastScrollY) {
       setIsVisible(false); // Hide the navbar when scrolling down
     } else {
       setIsVisible(true); // Show the navbar when scrolling up
     }
     setLastScrollY(window.scrollY);
-  };
+  }, [lastScrollY]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -21,7 +21,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [handleScroll]); // ✅ Added handleScroll as a dependency
 
   return (
     <nav
@@ -30,11 +30,10 @@ const Navbar = () => {
       } backdrop-blur-lg bg-white bg-opacity-10 border border-gray-200 border-opacity-20 rounded-xl shadow-lg py-2`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center space-x-6">
-        
         {/* Left Side: Logo and App Name */}
         <div className="flex items-center space-x-2">
           <div className="w-10 h-10 rounded-full overflow-hidden shadow-md">
-            <img src="src/assets/logo1.png" alt="Itinera Logo" className="w-full h-full object-cover" />
+            <img src="/logo1.png" alt="Itinera Logo" className="w-full h-full object-cover" />
           </div>
           <span className="text-black font-semibold text-2xl tracking-wide font-[Poppins]">ITINERA</span>
         </div>

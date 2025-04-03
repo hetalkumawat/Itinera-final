@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import  { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
@@ -6,7 +6,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75; // Adjust speed (1.0 = normal speed, 0.5 = half speed)
+      videoRef.current.playbackRate = 0.65; // Adjust speed (1.0 = normal speed, 0.5 = half speed)
     }
   }, []);
 
@@ -19,7 +19,7 @@ const HeroSection = () => {
         loop
         muted
       >
-        <source src="src/assets/vdo.mp4" type="video/mp4" />
+        <source src="/vdo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">

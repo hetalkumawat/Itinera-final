@@ -1,8 +1,7 @@
-import React from "react";
 import "./TestimonialsSection.css";
-import user1 from "../assets/user1.jpg";
-import user2 from "../assets/user2.jpg";
-import user3 from "../assets/user3.jpg";
+import user1 from "/user1.jpg";
+import user2 from "/user2.jpg";
+import user3 from "/user3.jpg";
 
 const testimonials = [
   {
@@ -39,8 +38,8 @@ const TestimonialsSection = () => {
                 className="testimonial-image"
               />
               <div className="testimonial-content">
-                <p className="testimonial-feedback">"{testimonial.feedback}"</p>
-                <h4 className="testimonial-name">- {testimonial.name}</h4>
+              <p className="testimonial-feedback">&ldquo;{testimonial.feedback}&rdquo;</p>
+              <h4 className="testimonial-name">- {testimonial.name}</h4>
               </div>
             </div>
           ))}
