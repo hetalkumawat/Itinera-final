@@ -16,7 +16,7 @@ connectDB();
 const cors = require('cors');
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://itinera-final.vercel.app'],
+  origin: ['http://localhost:5173', 'https://itinera-opal.vercel.app'],
   methods: 'GET,POST,PUT,DELETE',
   credentials: true
 }));
