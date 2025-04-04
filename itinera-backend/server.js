@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 7000;
 connectDB();
  
 // Middleware
-const cors = require('cors');
 
 app.use(cors({
   origin: ['http://localhost:5173', 'https://itiinera.netlify.app/'],
